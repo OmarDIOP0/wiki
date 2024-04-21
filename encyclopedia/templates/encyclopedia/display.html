@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html"%}
+{% load static %}
+{% block title %}
+    Display one entry
+{% endblock %}
+<link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+
+{% block body %}
+    {% if entry %}
+        {% if entry|length > 0 %}
+            <p>{{entry | safe}}<p>
+            <a href="{% url 'edit_entry' title %}">edit this entry</a>
+        {% else %}
+            <h2>Page Not Found</h2>
+        {% endif %}
+    {% endif %}
+{% endblock %}
